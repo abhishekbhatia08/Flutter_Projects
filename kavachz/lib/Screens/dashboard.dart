@@ -44,57 +44,42 @@ class _DashboardScreenState extends State<DashboardScreen> {
         ],
       ),
       body: SafeArea(
-        child: Row(
-          children: <Widget>[
-            TabBar(
-              tabs: [
-                Text("tab1"),
-                Text("tab2"),
-              ],
-              isScrollable: true,
+          child: Row(children: <Widget>[
+        NavigationRail(
+          selectedIndex: _selectedIndex,
+          groupAlignment: groupAligment,
+          onDestinationSelected: (int index) {
+            setState(() {
+              _selectedIndex = index;
+            });
+          },
+          labelType: labelType,
+          destinations: const <NavigationRailDestination>[
+            NavigationRailDestination(
+              icon: Icon(Icons.favorite_border),
+              selectedIcon: Icon(Icons.favorite),
+              label: Text('First'),
             ),
-            VerticalDivider(thickness: 1, width: 1),
-            TabBarView(children: [
-              Text("tab1"),
-              Text("tab1"),
-            ])
-            // NavigationRail(
-            //   selectedIndex: _selectedIndex,
-            //   groupAlignment: groupAligment,
-            //   onDestinationSelected: (int index) {
-            //     setState(() {
-            //       _selectedIndex = index;
-            //     });
-            //   },
-            //   labelType: labelType,
-            //   destinations: const <NavigationRailDestination>[
-            //     NavigationRailDestination(
-            //       icon: Icon(Icons.favorite_border),
-            //       selectedIcon: Icon(Icons.favorite),
-            //       label: Text('First'),
-            //     ),
-            //     NavigationRailDestination(
-            //       icon: Icon(Icons.bookmark_border),
-            //       selectedIcon: Icon(Icons.book),
-            //       label: Text('Second'),
-            //     ),
-            //     NavigationRailDestination(
-            //       icon: Icon(Icons.star_border),
-            //       selectedIcon: Icon(Icons.star),
-            //       label: Text('Third'),
-            //     ),
-            //   ],
-            // ),
-            // This is the main content.
-            // Expanded(
-            //   child: Column(
-            //     mainAxisAlignment: MainAxisAlignment.center,
-            //     children: <Widget>[],
-            //   ),
-            // ),
+            NavigationRailDestination(
+              icon: Icon(Icons.bookmark_border),
+              selectedIcon: Icon(Icons.book),
+              label: Text('Second'),
+            ),
+            NavigationRailDestination(
+              icon: Icon(Icons.star_border),
+              selectedIcon: Icon(Icons.star),
+              label: Text('Third'),
+            ),
           ],
         ),
-      ),
+        // This is the main content.
+        Expanded(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[],
+          ),
+        ),
+      ])),
     );
   }
 }
