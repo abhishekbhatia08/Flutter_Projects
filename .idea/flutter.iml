@@ -84,6 +84,21 @@
       <excludeFolder url="file://$MODULE_DIR$/shopping_app/windows/flutter/ephemeral/.plugin_symlinks/path_provider_windows/example/.dart_tool" />
       <excludeFolder url="file://$MODULE_DIR$/shopping_app/windows/flutter/ephemeral/.plugin_symlinks/path_provider_windows/example/build" />
       <excludeFolder url="file://$MODULE_DIR$/shopping_app/windows/flutter/ephemeral/.plugin_symlinks/path_provider_windows/example/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/counter_app/build" />
+      <excludeFolder url="file://$MODULE_DIR$/counter_app/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/counter_app/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/mechanify/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/mechanify/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/mechanify/build" />
+      <excludeFolder url="file://$MODULE_DIR$/shared_pref/build" />
+      <excludeFolder url="file://$MODULE_DIR$/shared_pref/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/shared_pref/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/covid_help/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/covid_help/build" />
+      <excludeFolder url="file://$MODULE_DIR$/covid_help/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/text_control/build" />
+      <excludeFolder url="file://$MODULE_DIR$/text_control/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/text_control/.pub" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
