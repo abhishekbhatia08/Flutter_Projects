@@ -1,6 +1,6 @@
-# sign_up_app
+# Sign Up / Login App
 
-A new Flutter project.
+A Basic Sign Up App with a Form and Option to Upload CV.
 
 ## Getting Started
 
