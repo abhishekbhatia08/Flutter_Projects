@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:sign_up_app/color_constants.dart';
+import 'package:sign_up_app/utils/color_constants.dart';
 import 'package:flutter_pdfview/flutter_pdfview.dart';
-import 'package:sign_up_app/pdf_screen.dart';
+import 'package:sign_up_app/screens/pdf_screen.dart';
 import 'package:sign_up_app/widgets/button.dart';
 import 'package:sign_up_app/widgets/push_navigator.dart';
 

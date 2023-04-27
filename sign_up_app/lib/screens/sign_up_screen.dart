@@ -1,7 +1,7 @@
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
-import 'package:sign_up_app/color_constants.dart';
-import 'package:sign_up_app/user_details.dart';
+import 'package:sign_up_app/utils/color_constants.dart';
+import 'package:sign_up_app/screens/user_details.dart';
 import 'package:sign_up_app/widgets/button.dart';
 import 'package:sign_up_app/widgets/custom_scackbar.dart';
 import 'package:sign_up_app/widgets/form_text_field.dart';

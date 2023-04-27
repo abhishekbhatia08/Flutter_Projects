@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:sign_up_app/color_constants.dart';
+import 'package:sign_up_app/utils/color_constants.dart';
 
 class MobileTextField extends StatefulWidget {
   final TextEditingController contoller;

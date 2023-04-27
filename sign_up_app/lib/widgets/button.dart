@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sign_up_app/color_constants.dart';
+import 'package:sign_up_app/utils/color_constants.dart';
 
 class CustomisedButton extends StatelessWidget {
   final String buttonText;

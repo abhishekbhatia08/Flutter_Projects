@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:sign_up_app/color_constants.dart';
-import 'package:sign_up_app/user_details.dart';
+import 'package:sign_up_app/utils/color_constants.dart';
+import 'package:sign_up_app/screens/user_details.dart';
 import 'package:sign_up_app/widgets/button.dart';
 import 'package:sign_up_app/widgets/mobile_text_field.dart';
 import 'package:sign_up_app/widgets/push_navigator.dart';

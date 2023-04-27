@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_pdfview/flutter_pdfview.dart';
-import 'package:sign_up_app/color_constants.dart';
+import 'package:sign_up_app/utils/color_constants.dart';
 
 class PDFScreen extends StatefulWidget {
   final String? path;
