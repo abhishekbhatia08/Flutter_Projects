@@ -35,8 +35,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
         lastName.text.isNotEmpty &&
         email.text.isNotEmpty &&
         phoneNumber.text.isNotEmpty &&
-        dobSelected &&
-        cvSelected) {
+        dobSelected && cvSelected) {
       return true;
     } else {
       return false;
@@ -221,8 +220,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
               buttonText: "submit",
               buttonColor: ColorConstants.secondary,
               textColor: ColorConstants.primary,
-              onPressed: requiredDetailsFilled()
-                  ? () async {
+              onPressed:
+               requiredDetailsFilled()
+                  ?
+                   () async {
                       SharedPreferences preferences =
                           await SharedPreferences.getInstance();
                       preferences.setString('first_name', firstName.text);

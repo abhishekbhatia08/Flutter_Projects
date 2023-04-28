@@ -10,7 +10,7 @@ class DataController extends GetxController {
   Future<void> getData() async {
     _isLoading = true;
     Response response = await service.getData();
-    print(response.body);
+    print(response);
     if (response.statusCode == 200) {
       _myData = response.body;
       update();
