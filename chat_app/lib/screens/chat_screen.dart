@@ -1,13 +1,14 @@
+import 'package:chat_app/widgets/messages.dart';
+import 'package:chat_app/widgets/new_message.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 
-import '../widgets/chat/messages.dart';
-import '../widgets/chat/new_message.dart';
-
 class ChatScreen extends StatefulWidget {
+  const ChatScreen({super.key});
+
   @override
-  _ChatScreenState createState() => _ChatScreenState();
+  State<ChatScreen> createState() => _ChatScreenState();
 }
 
 class _ChatScreenState extends State<ChatScreen> {
@@ -34,46 +35,72 @@ class _ChatScreenState extends State<ChatScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('FlutterChat'),
-        actions: [
-          DropdownButton(
-            underline: Container(),
-            icon: Icon(
-              Icons.more_vert,
-              color: Theme.of(context).primaryIconTheme.color,
-            ),
-            items: [
-              DropdownMenuItem(
-                child: Container(
-                  child: Row(
+        elevation: 0,
+        automaticallyImplyLeading: false,
+        backgroundColor: Colors.white,
+        flexibleSpace: SafeArea(
+          child: Container(
+            padding: const EdgeInsets.only(right: 16),
+            child: Row(
+              children: <Widget>[
+                IconButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  icon: const Icon(
+                    Icons.arrow_back,
+                    color: Colors.black,
+                  ),
+                ),
+                const SizedBox(
+                  width: 2,
+                ),
+                const CircleAvatar(
+                  backgroundImage:
+                      AssetImage("assets/images/arvind_kejrival.jpeg"),
+                  maxRadius: 20,
+                ),
+                const SizedBox(
+                  width: 12,
+                ),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      Icon(Icons.exit_to_app),
-                      SizedBox(width: 8),
-                      Text('Logout'),
+                      const Text(
+                        "Arvind Kejrival",
+                        style: TextStyle(
+                            fontSize: 16, fontWeight: FontWeight.w600),
+                      ),
+                      const SizedBox(
+                        height: 6,
+                      ),
+                      Text(
+                        "Online",
+                        style: TextStyle(
+                            color: Colors.grey.shade600, fontSize: 13),
+                      ),
                     ],
                   ),
                 ),
-                value: 'logout',
-              ),
-            ],
-            onChanged: (itemIdentifier) {
-              if (itemIdentifier == 'logout') {
-                FirebaseAuth.instance.signOut();
-              }
-            },
+                const Icon(
+                  Icons.settings,
+                  color: Colors.black54,
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+      body: Column(
+        children: <Widget>[
+          Expanded(
+            child: Messages(),
           ),
         ],
       ),
-      body: Container(
-        child: Column(
-          children: <Widget>[
-            Expanded(
-              child: Messages(),
-            ),
-            NewMessage(),
-          ],
-        ),
-      ),
+      bottomNavigationBar: NewMessage(),
     );
   }
 }
