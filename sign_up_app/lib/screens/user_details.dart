@@ -4,7 +4,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sign_up_app/data/bloc/user_cubit.dart';
 import 'package:sign_up_app/data/bloc/user_state.dart';
 import 'package:sign_up_app/data/model/user_model.dart';
-import 'package:sign_up_app/data/services/user_services.dart';
 import 'package:sign_up_app/utils/color_constants.dart';
 import 'package:flutter_pdfview/flutter_pdfview.dart';
 import 'package:sign_up_app/screens/pdf_screen.dart';
