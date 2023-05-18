@@ -1,14 +1,14 @@
+import 'dart:convert';
+import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:sign_up_app/data/bloc/user_cubit.dart';
-import 'package:sign_up_app/data/bloc/user_state.dart';
-import 'package:sign_up_app/data/model/user_model.dart';
 import 'package:sign_up_app/utils/color_constants.dart';
-import 'package:flutter_pdfview/flutter_pdfview.dart';
 import 'package:sign_up_app/screens/pdf_screen.dart';
 import 'package:sign_up_app/widgets/button.dart';
 import 'package:sign_up_app/widgets/push_navigator.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:path_provider/path_provider.dart';
+import 'package:sign_up_app/widgets/user_detail_box.dart';
 
 class UserDetails extends StatefulWidget {
   const UserDetails({super.key});
@@ -62,114 +62,28 @@ class _UserDetailsState extends State<UserDetails> {
         elevation: 2,
         backgroundColor: ColorConstants.primary,
       ),
-      body: 
-      // BlocConsumer<UserCubit, UserState>(
-      //     listener: (context, state) {},
-      //     builder: (context, state) {
-      //       if (state is UserInitial) {
-      //         return const Center(
-      //           child: CircularProgressIndicator(),
-      //         );
-      //       }
-      //       if (state is UserLoaded) {
-      //         {
-      //           return 
-                ListView.builder(
-              itemCount: 1,
-              itemBuilder: (context, index) {
-                
-                return userDetailBox(context, firstName.toString(), lastName.toString(), email.toString(),phone.toString(), dob.toString(),fileName,pathPDF,);
-              },
-            ),);
-          //     } 
-          //   }
-          //   return SizedBox(
-          //       child: const Center(child: Text("No Saved Vehicle")));
-          // }));
-          }}
-
-Widget detailsRow(
-  BuildContext context,
-  String keyText,
-  String valueText,
-) {
-  return Row(
-    children: [
-      Text(
-        "$keyText - ",
-        style: const TextStyle(
-          fontSize: 16,
-          fontWeight: FontWeight.w400,
-          color: ColorConstants.secondary,
-        ),
+      body: StreamBuilder(
+        stream: FirebaseFirestore.instance.collection('users').snapshots(),
+        builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+          if (!snapshot.hasData) {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+          return ListView(
+            children: snapshot.data!.docs.map((userData) {
+              return UserDetailsBox(
+                firstName: userData["firstName"],
+                lastName: userData["lastName"],
+                email: userData["email"],
+                phone: userData["phone"].toString(),
+                dob: userData["dob"],
+                pathPDF: userData["cv"],
+              );
+            }).toList(),
+          );
+        },
       ),
-      customText(context, valueText),
-    ],
-  );
-}
-
-@override
-Widget customText(BuildContext context, String text) {
-  return Text(
-    text,
-    style: const TextStyle(
-      fontSize: 16,
-      fontWeight: FontWeight.w600,
-      color: ColorConstants.secondary,
-    ),
-  );
-}
-
-@override
-Widget userDetailBox(BuildContext context,String firstName,String lastName,String email,String phone,String dob,String fileName,String pathPDF) {
-  return Container(
-        margin: const EdgeInsets.all(20),
-        padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 10),
-        decoration: BoxDecoration(
-          color: ColorConstants.white,
-          borderRadius: const BorderRadius.all(Radius.circular(2)),
-          border: Border.all(
-            color: ColorConstants.primary,
-            style: BorderStyle.solid,
-            width: 3,
-          ),
-        ),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            detailsRow(context, "Name",
-                "${firstName.toString()} ${lastName.toString()}"),
-            detailsRow(context, "Email", email.toString()),
-            detailsRow(context, "Phone No.", phone.toString()),
-            detailsRow(context, "Date of Birth", dob.toString()),
-            Align(
-              alignment: Alignment.center,
-              child: Padding(
-                padding: const EdgeInsets.symmetric(vertical: 10),
-                child:Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    customText(context, fileName),
-                    CustomisedButton(
-                      buttonText: "Open CV",
-                      buttonColor: ColorConstants.primary,
-                      textColor: ColorConstants.secondary,
-                      onPressed: () {
-                        if (pathPDF.isNotEmpty) {
-                          pushNavigator(
-                              context,
-                              PDFScreen(
-                                path: pathPDF,
-                              ));
-                        }
-                      },
-                    )
-                  ],
-                ),
-              ),
-            ),
-          ],
-        ),
-      );
+    );
+  }
 }

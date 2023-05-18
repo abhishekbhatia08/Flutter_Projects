@@ -1,5 +1,8 @@
+import 'dart:convert';
+
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
+import 'dart:io';
 import 'package:sign_up_app/utils/color_constants.dart';
 import 'package:sign_up_app/screens/user_details.dart';
 import 'package:sign_up_app/widgets/button.dart';
@@ -9,6 +12,10 @@ import 'package:sign_up_app/widgets/mobile_text_field.dart';
 import 'package:sign_up_app/widgets/push_navigator.dart';
 import 'package:intl/intl.dart'; // for date format
 import 'package:shared_preferences/shared_preferences.dart';
+// Import the firebase_core plugin
+import 'package:firebase_core/firebase_core.dart';
+//Import firestore database
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 final DateTime today = DateTime.now();
 
@@ -20,6 +27,7 @@ class SignUpScreen extends StatefulWidget {
 }
 
 class _SignUpScreenState extends State<SignUpScreen> {
+  CollectionReference users = FirebaseFirestore.instance.collection('users');
   final TextEditingController firstName = TextEditingController();
   final TextEditingController lastName = TextEditingController();
   final TextEditingController email = TextEditingController();
@@ -30,12 +38,32 @@ class _SignUpScreenState extends State<SignUpScreen> {
   String cvPath = "";
   String fileName = "";
 
+  Future<void> addUser() {
+    final bytes = File(cvPath).readAsBytesSync();
+    String cv64 = base64Encode(bytes);
+    // Calling the collection to add a new user
+    return users
+        //adding to firebase collection
+        .add({
+          //Data added in the form of a dictionary into the document.
+          'firstName': firstName.text,
+          'lastName': lastName.text,
+          'email': email.text,
+          'phone': phoneNumber.text,
+          'dob': DateFormat.yMMMMd().format(dob!),
+          'cv': cv64,
+        })
+        .then((value) => toastShow(context, "Data Added", "success"))
+        .then((value) => pushNavigator(context, const UserDetails()));
+  }
+
   requiredDetailsFilled() {
     if (firstName.text.isNotEmpty &&
         lastName.text.isNotEmpty &&
         email.text.isNotEmpty &&
         phoneNumber.text.isNotEmpty &&
-        dobSelected && cvSelected) {
+        dobSelected &&
+        cvSelected) {
       return true;
     } else {
       return false;
@@ -220,10 +248,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
               buttonText: "submit",
               buttonColor: ColorConstants.secondary,
               textColor: ColorConstants.primary,
-              onPressed:
-               requiredDetailsFilled()
-                  ?
-                   () async {
+              onPressed: requiredDetailsFilled()
+                  ? () async {
                       SharedPreferences preferences =
                           await SharedPreferences.getInstance();
                       preferences.setString('first_name', firstName.text);
@@ -234,8 +260,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       preferences.setString('file_path', cvPath);
                       preferences
                           .setString('dob', DateFormat.yMMMMd().format(dob!))
-                          .then((value) =>
-                              pushNavigator(context, const UserDetails()));
+                          .then((value) => addUser());
                     }
                   : () {
                       toastShow(context, "Please Fill all the Required Details",
