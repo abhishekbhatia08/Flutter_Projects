@@ -46,7 +46,8 @@ class Bird extends SpriteGroupComponent<BirdMovement>
   }
 
   @override
-  void onCollisionStart(Set<Vector2> intersectionPoints, PositionComponent other) {
+  void onCollisionStart(Set<Vector2> intersectionPoints,
+      PositionComponent other) {
     super.onCollisionStart(intersectionPoints, other);
     gameOver();
   }
@@ -67,5 +68,8 @@ class Bird extends SpriteGroupComponent<BirdMovement>
   void update(double dt) {
     super.update(dt);
     position.y += Config.birdVelocity * dt;
+    if (position.y < 1) {
+      gameOver();
+    }
   }
 }
