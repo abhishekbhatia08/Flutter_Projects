@@ -29,16 +29,21 @@ migrate_working_dir/
 .pub-cache/
 .pub/
 /build/
+**/build/
 
 # iOS related
 ios/Pods/
+ios/Flutter/
 ios/.symlinks/
 ios/Flutter/Flutter.framework/
 ios/Flutter/Flutter.podspec
+ios/Runner.xcodeproj/
 ios/Runner.xcworkspace/
 ios/Runner.xcodeproj/project.xcworkspace/
 ios/Runner.xcodeproj/xcuserdata/
 ios/Runner.xcodeproj/project.xcworkspace/
+ios/Flutter/App.framework
+ios/Flutter/engine/
 
 # Android related
 android/.gradle/
