@@ -23,7 +23,8 @@ class PipeGroup extends PositionComponent with HasGameRef<FlappyBirdGame> {
       Pipe(pipePosition: PipePosition.top, height: centerY - spacing / 2),
       Pipe(
           pipePosition: PipePosition.bottom,
-          height: heightMinusGround - (centerY + spacing / 2))
+          height: heightMinusGround - (centerY + spacing / 2),
+      )
     ]);
   }
 
@@ -34,6 +35,16 @@ class PipeGroup extends PositionComponent with HasGameRef<FlappyBirdGame> {
 
     if (position.x < -50) {
       removeFromParent();
+      updateScore();
     }
+
+    if (gameRef.isHit == true) {
+      removeFromParent();
+      gameRef.isHit = false;
+    }
+  }
+
+  updateScore() {
+    gameRef.bird.score += 1;
   }
 }
