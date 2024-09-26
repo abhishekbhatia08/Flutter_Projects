@@ -15,6 +15,8 @@ class AppAssets {
   static const String pipe = "pipe.png";
   static const String pipeRotated = "pipe_rotated.png";
 
-  // Audios
-
+  /// Audios
+  static const String collision = "collision.wav";
+  static const String flying = "fly.wav";
+  static const String point = "point.wav";
 }

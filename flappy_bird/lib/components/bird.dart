@@ -1,6 +1,7 @@
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 import 'package:flame/effects.dart';
+import 'package:flame_audio/flame_audio.dart';
 import 'package:flappy_bird/game/bird_movement.dart';
 import 'package:flappy_bird/game/config.dart';
 import 'package:flappy_bird/game/flappy_bird.dart';
@@ -33,12 +34,15 @@ class Bird extends SpriteGroupComponent<BirdMovement>
   }
 
   fly() {
-    add(MoveByEffect(
-      Vector2(0, Config.gravity),
-      EffectController(duration: 0.2, curve: Curves.decelerate),
-      onComplete: () => current = BirdMovement.down,
-    ));
+    add(
+      MoveByEffect(
+        Vector2(0, Config.gravity),
+        EffectController(duration: 0.2, curve: Curves.decelerate),
+        onComplete: () => current = BirdMovement.down,
+      ),
+    );
     current = BirdMovement.middle;
+    FlameAudio.play(AppAssets.flying);
   }
 
   @override
@@ -48,6 +52,7 @@ class Bird extends SpriteGroupComponent<BirdMovement>
   }
 
   void gameOver() {
+    FlameAudio.play(AppAssets.collision);
     game.overlays.add(GameOverScreen.id);
     gameRef.pauseEngine();
     gameRef.isHit = true;
