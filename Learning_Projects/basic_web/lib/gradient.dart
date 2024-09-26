@@ -23,11 +23,11 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Flutter Gradient Example'),
+        title: const Text('Flutter Gradient Example'),
       ),
       body: Center(
         child: Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             gradient: LinearGradient(
               begin: Alignment.topRight,
               end: Alignment.bottomLeft,
@@ -37,7 +37,7 @@ class MyHomePage extends StatelessWidget {
               ],
             )
           ),
-          child: Center(
+          child: const Center(
             child: Text(
               'Hello Gradient!',
               style: TextStyle(

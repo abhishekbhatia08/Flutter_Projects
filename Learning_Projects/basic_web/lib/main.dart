@@ -13,6 +13,6 @@ class MyApp extends StatelessWidget {
             textTheme: Theme.of(context).textTheme.apply(
                   fontFamily: 'Open Sans',
                 )),
-        home: HomeView());
+        home: const HomeView());
   }
 }
