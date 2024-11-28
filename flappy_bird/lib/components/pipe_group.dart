@@ -5,7 +5,6 @@ import 'package:flame_audio/flame_audio.dart';
 import 'package:flappy_bird/components/pipe.dart';
 import 'package:flappy_bird/game/config.dart';
 import 'package:flappy_bird/game/flappy_bird.dart';
-import 'package:flappy_bird/game/pipe_position.dart';
 import 'package:flappy_bird/utils/assets.dart';
 
 class PipeGroup extends PositionComponent with HasGameRef<FlappyBirdGame> {

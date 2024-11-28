@@ -2,7 +2,6 @@ import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 import 'package:flame/effects.dart';
 import 'package:flame_audio/flame_audio.dart';
-import 'package:flappy_bird/game/bird_movement.dart';
 import 'package:flappy_bird/game/config.dart';
 import 'package:flappy_bird/game/flappy_bird.dart';
 import 'package:flappy_bird/screens/game_over_screen.dart';

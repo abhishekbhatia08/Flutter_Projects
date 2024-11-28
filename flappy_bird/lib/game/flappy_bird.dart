@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:flame/components.dart';
 import 'package:flame/events.dart';
 import 'package:flame/game.dart';
@@ -9,6 +7,7 @@ import 'package:flappy_bird/components/bird.dart';
 import 'package:flappy_bird/components/ground.dart';
 import 'package:flappy_bird/components/pipe_group.dart';
 import 'package:flappy_bird/game/config.dart';
+import 'package:flutter/material.dart';
 
 class FlappyBirdGame extends FlameGame with TapDetector, HasCollisionDetection {
   late Bird bird;
@@ -34,8 +33,7 @@ class FlappyBirdGame extends FlameGame with TapDetector, HasCollisionDetection {
       position: Vector2(size.x / 2, size.y / 2 * 0.2 + 30),
       anchor: Anchor.bottomCenter,
       textRenderer: TextPaint(
-        style: const TextStyle(
-            fontSize: 40, fontFamily: 'Game', color: Color(0xFFFFFFFF)),
+        style: const TextStyle(fontSize: 40, fontFamily: 'Game', color: Colors.white),
       ),
     );
   }

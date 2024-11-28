@@ -3,7 +3,6 @@ import 'package:flame/components.dart';
 import 'package:flame/flame.dart';
 import 'package:flappy_bird/game/config.dart';
 import 'package:flappy_bird/game/flappy_bird.dart';
-import 'package:flappy_bird/game/pipe_position.dart';
 import 'package:flappy_bird/utils/assets.dart';
 
 class Pipe extends SpriteComponent with HasGameRef<FlappyBirdGame> {

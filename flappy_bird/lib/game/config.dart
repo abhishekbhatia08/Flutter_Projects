@@ -5,3 +5,7 @@ class Config {
   static const birdVelocity = 210;
   static const gravity = -100.0;
 }
+
+enum PipePosition { top, bottom }
+
+enum BirdMovement { middle, up, down }
