@@ -16,9 +16,16 @@ class PipeGroup extends PositionComponent with HasGameRef<FlappyBirdGame> {
   Future<void> onLoad() async {
     position.x = gameRef.size.x;
 
+   // Define a minimum gap between the pipes
+    const double minPipeGap = 150;
+
     final heightMinusGround = gameRef.size.y - Config.groundHeight;
-    final spacing = 100 + _random.nextDouble() * (heightMinusGround / 4);
-    final centerY = spacing + _random.nextDouble() * (heightMinusGround - spacing);
+
+    // Calculate the maximum spacing that respects the minimum gap
+    final spacing = minPipeGap + _random.nextDouble() * ((heightMinusGround / 4) - minPipeGap);
+
+    // Adjust the centerY calculation to ensure it's always valid
+    final centerY = spacing + _random.nextDouble() * (heightMinusGround - spacing - minPipeGap);
 
     addAll([
       Pipe(pipePosition: PipePosition.top, height: centerY - spacing / 2),

@@ -7,7 +7,7 @@ plugins {
 
 android {
     namespace = "com.example.flappy_bird"
-    compileSdk = flutter.compileSdkVersion
+    compileSdk = 35
     ndkVersion = flutter.ndkVersion
 
     compileOptions {
