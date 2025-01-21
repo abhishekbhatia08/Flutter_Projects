@@ -17,7 +17,7 @@ class PipeGroup extends PositionComponent with HasGameRef<FlappyBirdGame> {
     position.x = gameRef.size.x;
 
    // Define a minimum gap between the pipes
-    const double minPipeGap = 150;
+    const double minPipeGap = 190;
 
     final heightMinusGround = gameRef.size.y - Config.groundHeight;
 

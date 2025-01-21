@@ -20,6 +20,7 @@ class GameOverScreen extends StatelessWidget {
           children: [
             Text(
               'Score: ${game.bird.score}',
+              textAlign: TextAlign.center,
               style: const TextStyle(
                 fontFamily: "game",
                 fontWeight: FontWeight.bold,
