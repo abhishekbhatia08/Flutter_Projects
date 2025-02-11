@@ -12,4 +12,8 @@ void main() {
     expect(calculator.add('2'), 2);
   });
 
+  test('Returns sum of two numbers', () {
+    expect(calculator.add('2,8'), equals(10));
+  });
+
 }
