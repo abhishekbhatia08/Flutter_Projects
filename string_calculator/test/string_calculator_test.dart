@@ -16,4 +16,8 @@ void main() {
     expect(calculator.add('2,8'), equals(10));
   });
 
+  test('Handles multiple numbers', () {
+    expect(calculator.add('1,2,3,4'), equals(10));
+  });
+
 }
