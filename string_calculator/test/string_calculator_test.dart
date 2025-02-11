@@ -20,4 +20,8 @@ void main() {
     expect(calculator.add('1,2,3,4'), equals(10));
   });
 
+  test('Handles new line as a delimiter', () {
+    expect(calculator.add('1\n2,3'), equals(6));
+  });
+
 }
