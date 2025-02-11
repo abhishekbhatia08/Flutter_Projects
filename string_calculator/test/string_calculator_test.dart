@@ -24,4 +24,8 @@ void main() {
     expect(calculator.add('1\n2,3'), equals(6));
   });
 
+  test('Handles custom delimiter', () {
+    expect(calculator.add('//:\n4:3'), equals(7));
+  });
+
 }
