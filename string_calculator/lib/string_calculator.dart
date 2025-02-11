@@ -37,6 +37,6 @@ class StringCalculator {
       numbersList.add(int.parse(currentNumber));
     }
 
-    return 0;
+    return numbersList.reduce((sum, n) => sum + n);
   }
 }
