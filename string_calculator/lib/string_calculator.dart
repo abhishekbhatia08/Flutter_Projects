@@ -37,6 +37,12 @@ class StringCalculator {
       numbersList.add(int.parse(currentNumber));
     }
 
+    //Handling negative numbers
+    final List<int> negativeNumbers = numbersList.where((n) => n < 0).toList();
+    if (negativeNumbers.isNotEmpty) {
+      throw Exception("Negative numbers are not allowed: ${negativeNumbers.join(", ")}");
+    }
+
     return numbersList.reduce((sum, n) => sum + n);
   }
 }
