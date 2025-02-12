@@ -18,11 +18,15 @@ class StringCalculator {
 
     // Split numbers using the delimiters
     String currentNumber = "";
-    for (int i = 0; i< numbers.length;i++) {
+    for (int i = 0; i < numbers.length; i++) {
       if (delimiters.contains(numbers[i])) {
         if (currentNumber.isNotEmpty) {
           // Generating int list of Numbers
-          numbersList.add(int.parse(currentNumber));
+
+          // Case where Number greater than 1000 will be ignored
+          final int n = int.parse(currentNumber);
+          final int number = n > 1000 ? 0 : n;
+          numbersList.add(number);
 
           // Resetting current number to empty string
           currentNumber = "";

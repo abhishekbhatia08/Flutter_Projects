@@ -28,6 +28,10 @@ void main() {
     expect(calculator.add('//:\n4:3'), equals(7));
   });
 
+  test('Ignores the number greater than 100', () {
+    expect(calculator.add('1,1002,1000'), equals(1001));
+  });
+
   test('Throws exception for negative numbers', () {
     expect(() => calculator.add('1,-2,3,-4'), throwsA(isA<Exception>()));
   });
