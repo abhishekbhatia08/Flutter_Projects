@@ -11,9 +11,21 @@ class StringCalculator {
     // Handling custom delimiters
     if (numbers.startsWith("//")) {
       final parts = numbers.split('\n');
-      final customDelimiters = parts.first.substring(2);
-      delimiters.add(customDelimiters);
-      numbers = parts.sublist(1).join("\n");
+      String customDelimiters = parts.first.substring(2);
+
+      // Handling Delimiters of any length such that the format is “//[delimiter]\n”
+      if (customDelimiters.startsWith("[") && customDelimiters.endsWith("]")) {
+
+        customDelimiters = customDelimiters.substring(1, customDelimiters.length - 1);
+        numbers = parts.sublist(1).join("\n");
+        numbers = numbers.replaceAll(customDelimiters, ",");
+
+      } else {
+        // Handling normal delimiters of length of one char
+
+        delimiters.add(customDelimiters);
+        numbers = parts.sublist(1).join("\n");
+      }
     }
 
     // Split numbers using the delimiters

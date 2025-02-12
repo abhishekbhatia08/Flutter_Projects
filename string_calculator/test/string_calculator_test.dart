@@ -32,6 +32,10 @@ void main() {
     expect(calculator.add('1,1002,1000'), equals(1001));
   });
 
+  test('Handles delimiter of any length', () {
+    expect(calculator.add('//[%]\n4%9'), equals(13));
+  });
+
   test('Throws exception for negative numbers', () {
     expect(() => calculator.add('1,-2,3,-4'), throwsA(isA<Exception>()));
   });
