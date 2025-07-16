@@ -4,7 +4,7 @@ import 'package:shopsy_app/data/model/product_model.dart';
 
 class ProductRepository {
   Future<List<Product>> getProducts() async {
-    final String response = await rootBundle.loadString('assets/products.json');
+    final String response = await rootBundle.loadString('assets/data/products.json');
     final List<dynamic> data = json.decode(response);
     return data.map((item) => Product.fromJson(item)).toList();
   }
