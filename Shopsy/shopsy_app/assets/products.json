@@ -1,0 +1,86 @@
+[
+  {
+    "id": "p1",
+    "name": "Modern",
+    "description": "A sleek and comfortable sofa, perfect for modern living rooms. Upholstered in genuine leather with a sturdy wooden frame.",
+    "price": 899.99,
+    "imageUrl": "https://images.unsplash.com/photo-1540574163026-643ea20ade25?w=500"
+  },
+  {
+    "id": "p2",
+    "name": "Minimalist Oak Desk",
+    "description": "Work in style with this minimalist desk made from solid oak. Features clean lines and a spacious surface.",
+    "price": 349.50,
+    "imageUrl": "https://images.unsplash.com/photo-1611269154421-4e27233ac5c7?w=500"
+  },
+  {
+    "id": "p3",
+    "name": "Ergonomic Office Chair",
+    "description": "Stay comfortable during long work hours with this ergonomic chair, featuring adjustable lumbar support and armrests.",
+    "price": 275.00,
+    "imageUrl": "https://images.unsplash.com/photo-1580480055273-228ff5388ef8?w=500"
+  },
+  {
+    "id": "p4",
+    "name": "Geometric Wood Bookshelf",
+    "description": "A unique geometric bookshelf made from light natural wood, perfect for organizing and displaying your favorite books and decorative items.",
+    "price": 215.00,
+    "imageUrl": "https://res.litfad.net/site/img/item/2024/08/26/13665364/600x600.jpg"
+  },
+  {
+    "id": "p5",
+    "name": "Velvet Accent Chair",
+    "description": "Add a pop of color and luxury to any room with this plush velvet accent chair. Available in multiple vibrant colors.",
+    "price": 220.75,
+    "imageUrl": "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=500"
+  },
+  {
+    "id": "p6",
+    "name": "Glass-Top Coffee Table",
+    "description": "A stylish coffee table featuring a tempered glass top and an industrial black metal frame.",
+    "price": 369.99,
+    "imageUrl": "https://www.juliettesinteriors.co.uk/wp-content/uploads/2022/11/contemporary-round-glass-coffee-table-5.jpg"
+  },
+  {
+    "id": "p7",
+    "name": "Scandinavian Dining Table",
+    "description": "A clean and functional dining table inspired by Scandinavian design, featuring light oak wood and angled legs.",
+    "price": 599.00,
+    "imageUrl": "https://i.etsystatic.com/22766320/r/il/000ba1/2387452830/il_fullxfull.2387452830_1xtl.jpg"
+  },
+  {
+    "id": "p8",
+    "name": "Contemporary Floor Lamp",
+    "description": "Illuminate your space with this sleek floor lamp featuring a matte black finish and a warm LED bulb.",
+    "price": 120.99,
+    "imageUrl": "https://media.wallmantra.store/product/other/wallmantra-flower-design-wooden-floor-lamp-side-light-modern-lamp-2B75-large.webp"
+  },
+  {
+    "id": "p9",
+    "name": "Modern Minimal Wall Clock",
+    "description": "A chic, modern wall clock with a clean minimal design, great for kitchens or living rooms.",
+    "price": 85.00,
+    "imageUrl": "https://i.etsystatic.com/14441612/r/il/8070db/2055381528/il_fullxfull.2055381528_9gkj.jpg"
+  },
+  {
+    "id": "p10",
+    "name": "Handwoven Jute Area Rug",
+    "description": "A durable and eco-friendly area rug, handwoven from 100% natural jute. Adds warmth and texture to any floor.",
+    "price": 140.00,
+    "imageUrl": "https://www.jiomart.com/images/product/original/rvqilfxyoo/nature4u-handwoven-jute-area-rug-vintage-braided-reversible-rug-eco-friendly-3-feet-round-product-images-orvqilfxyoo-p602970307-0-202307061147.jpg?im=Resize=(1000,1000)"
+  },
+  {
+    "id": "p11",
+    "name": "Two-Drawer Walnut Nightstand",
+    "description": "A compact nightstand made from walnut wood, with two spacious drawers and a streamlined silhouette.",
+    "price": 175.50,
+    "imageUrl": "https://woodenbazar.com/cdn/shop/files/williams-solid-wood-bedside-table-nightstand-with-2-drawer-walnut-111.webp?v=1729296063"
+  },
+  {
+    "id": "p12",
+    "name": "Mid-Century Armchair",
+    "description": "Relax in style with this mid-century modern armchair, featuring tapered legs and a soft fabric seat.",
+    "price": 310.40,
+    "imageUrl": "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=500"
+  }
+]
