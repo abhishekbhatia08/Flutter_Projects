@@ -38,7 +38,7 @@ class MyApp extends StatelessWidget {
       builder: (_, child) {
         return MultiBlocProvider(
           providers: [
-            BlocProvider(create: (_) => CartCubit()..loadCart()),
+            BlocProvider(create: (_) => CartCubit()),
           ],
           child: MaterialApp.router(
             routerConfig: _appRouter.config(),

@@ -18,7 +18,7 @@ class CartCubit extends Cubit<CartState> {
   void loadCart() {
     final items = StorageService.getCart();
     emit(CartState(items: items));
-    CartStreamService().updateUnreadCount(items.length);
+    CartStreamService().updateItemsCount(items.length);
   }
 
   Future<void> _saveCart(List<CartItem> items) async {
@@ -42,7 +42,7 @@ class CartCubit extends Cubit<CartState> {
     }
 
     emit(CartState(items: updatedItems));
-    CartStreamService().updateUnreadCount(updatedItems.length);
+    CartStreamService().updateItemsCount(updatedItems.length);
     _saveCart(updatedItems);
   }
 
@@ -55,7 +55,7 @@ class CartCubit extends Cubit<CartState> {
     updatedItems.removeWhere((item) => item.product.id == cartItem.product.id);
 
     emit(CartState(items: updatedItems));
-    CartStreamService().updateUnreadCount(updatedItems.length);
+    CartStreamService().updateItemsCount(updatedItems.length);
     _saveCart(updatedItems);
   }
 
@@ -87,7 +87,7 @@ class CartCubit extends Cubit<CartState> {
       }
 
       emit(CartState(items: updatedItems));
-      CartStreamService().updateUnreadCount(updatedItems.length);
+      CartStreamService().updateItemsCount(updatedItems.length);
       _saveCart(updatedItems);
     }
   }

@@ -9,7 +9,7 @@ class CartStreamService {
 
   Stream<int> get itemsCountStream => _totalItemsCount.stream;
 
-  void updateUnreadCount(int newCount) {
+  void updateItemsCount(int newCount) {
     _totalItemsCount.add(newCount);
   }
 
